@@ -1,7 +1,6 @@
-
 /*
-CC-297 - Projeto 2 - Geração de Malha Computacional
-Programa Desenvolvido por : Alisson Vinicius Brito Lopes
+Project 2 - Computational Mesh Generation
+Computer code written by Alisson Vinicius Brito Lopes
 */
 
 #include <iostream>
@@ -140,7 +139,7 @@ class Malha {
     int IMAX, JMAX, ILE, ITE;
     double XSF, YSF;
 
-// Criando ponteiro duplos e simples para Alocação dinâmica de memoria e "zeramento" de vetores e matrizes na memoria do computador
+// Criando ponteiro duplos e simples para AlocaÃ§Ã£o dinÃ¢mica de memoria e "zeramento" de vetores e matrizes na memoria do computador
 
     double **Lx,**Ly, **Cc, **Phi, **f, **g,**DELTAx, **DELTAy;
 
@@ -161,7 +160,7 @@ class Malha {
 void inicializaMatriz_Dels( int JMAX){
    int j;
 
-    Dels = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    Dels = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < JMAX; j++){
 
@@ -172,7 +171,7 @@ void inicializaMatriz_Dels( int JMAX){
 void inicializaMatriz_Seta( int JMAX){
    int j;
 
-    Seta = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    Seta = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < JMAX; j++){
 
@@ -184,7 +183,7 @@ void inicializaMatriz_Seta( int JMAX){
 void inicializaMatriz_Rx( int JMAX){
    int j;
 
-    Rx = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    Rx = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < JMAX; j++){
 
@@ -195,7 +194,7 @@ void inicializaMatriz_Rx( int JMAX){
 void inicializaMatriz_Ry( int JMAX){
    int j;
 
-    Ry = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    Ry = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < JMAX; j++){
 
@@ -206,7 +205,7 @@ void inicializaMatriz_Ry( int JMAX){
 void inicializaMatriz_R( int JMAX){
    int j;
 
-    R = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    R = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < JMAX; j++){
 
@@ -218,7 +217,7 @@ void inicializaMatriz_R( int JMAX){
 void inicializaMatriz_s( int JMAX){
    int j;
 
-    s = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    s = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < JMAX; j++){
 
@@ -230,7 +229,7 @@ void inicializaMatriz_s( int JMAX){
 void inicializaMatriz_eref( int JMAX){
    int j;
 
-    eref = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    eref = new double [JMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < JMAX; j++){
 
@@ -249,7 +248,7 @@ void inicializaMatriz_xint(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         xint[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -268,7 +267,7 @@ void inicializaMatriz_yint(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         yint[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -287,7 +286,7 @@ void inicializaMatriz_xo(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         xo[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -306,7 +305,7 @@ void inicializaMatriz_yo(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         yo[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -326,7 +325,7 @@ void inicializaMatriz_x(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         x[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -345,7 +344,7 @@ void inicializaMatriz_y(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         y[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -365,7 +364,7 @@ void inicializaMatriz_Lx(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         Lx[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -384,7 +383,7 @@ void inicializaMatriz_Ly(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         Ly[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -403,7 +402,7 @@ void inicializaMatriz_Phi(int IMAX, int JMAX){ // POTENCIAL Zerando e ja assumin
         Phi [i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -422,7 +421,7 @@ void inicializaMatriz_Cc(int IMAX, int JMAX){ // UPDATE Zerando e ja assumindo c
         Cc [i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -431,11 +430,11 @@ void inicializaMatriz_Cc(int IMAX, int JMAX){ // UPDATE Zerando e ja assumindo c
     }
 }
 
-// Inicializando e alocando espaço para as variaveis calculadas no algoritmo de Thomas
+// Inicializando e alocando espaÃ§o para as variaveis calculadas no algoritmo de Thomas
 void inicializaMatriz_AT( int IMAX){
    int j;
 
-    AT = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    AT = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < IMAX; j++){
 
@@ -446,7 +445,7 @@ void inicializaMatriz_AT( int IMAX){
 void inicializaMatriz_BT( int IMAX){
    int j;
 
-    BT = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    BT = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < IMAX; j++){
 
@@ -457,7 +456,7 @@ void inicializaMatriz_BT( int IMAX){
 void inicializaMatriz_CT( int IMAX){
    int j;
 
-    CT = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    CT = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < IMAX; j++){
 
@@ -468,7 +467,7 @@ void inicializaMatriz_CT( int IMAX){
 void inicializaMatriz_DT( int IMAX){
    int j;
 
-    DT = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    DT = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j <IMAX; j++){
 
@@ -480,7 +479,7 @@ void inicializaMatriz_DT( int IMAX){
 void inicializaMatriz_ATX( int IMAX){
    int j;
 
-    ATX = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    ATX = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < IMAX; j++){
 
@@ -491,7 +490,7 @@ void inicializaMatriz_ATX( int IMAX){
 void inicializaMatriz_BTX( int IMAX){
    int j;
 
-    BTX = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    BTX = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < IMAX; j++){
 
@@ -502,7 +501,7 @@ void inicializaMatriz_BTX( int IMAX){
 void inicializaMatriz_CTX( int IMAX){
    int j;
 
-    CTX = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    CTX = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < IMAX; j++){
 
@@ -513,7 +512,7 @@ void inicializaMatriz_CTX( int IMAX){
 void inicializaMatriz_VTX( int IMAX){
    int j;
 
-    VTX = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    VTX = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j <IMAX; j++){
 
@@ -525,7 +524,7 @@ void inicializaMatriz_VTX( int IMAX){
 void inicializaMatriz_ATY( int IMAX){
    int j;
 
-    ATY = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    ATY = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < IMAX; j++){
 
@@ -536,7 +535,7 @@ void inicializaMatriz_ATY( int IMAX){
 void inicializaMatriz_BTY( int IMAX){
    int j;
 
-    BTY = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    BTY = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < IMAX; j++){
 
@@ -547,7 +546,7 @@ void inicializaMatriz_BTY( int IMAX){
 void inicializaMatriz_CTY( int IMAX){
    int j;
 
-    CTY = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    CTY = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j < IMAX; j++){
 
@@ -558,7 +557,7 @@ void inicializaMatriz_CTY( int IMAX){
 void inicializaMatriz_VTY( int IMAX){
    int j;
 
-    VTY = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÇÕES
+    VTY = new double [IMAX]; // VER AO CERTO ESSA QUANTIDADE DE POSIÃ‡Ã•ES
 
     for (j = 0; j <IMAX; j++){
 
@@ -567,7 +566,7 @@ void inicializaMatriz_VTY( int IMAX){
 }
 
 
-// Matriz dos Coeficientes da Equação 1
+// Matriz dos Coeficientes da EquaÃ§Ã£o 1
 
 void inicializaMatriz_A(int IMAX, int JMAX){
 
@@ -682,7 +681,7 @@ void inicializaMatriz_AMX(int IMAX, int JMAX){ // UPDATE Zerando e ja assumindo 
         AMX[i] = new double[IMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < IMAX; j++){
@@ -702,7 +701,7 @@ void inicializaMatriz_AMY(int IMAX, int JMAX){ // UPDATE Zerando e ja assumindo 
         AMY[i] = new double[IMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < IMAX; j++){
@@ -721,7 +720,7 @@ void inicializaMatriz_f(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         f[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -740,7 +739,7 @@ void inicializaMatriz_g(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         g[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -761,7 +760,7 @@ void inicializaMatriz_DELTAx(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         DELTAx[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -780,7 +779,7 @@ void inicializaMatriz_DELTAy(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
         DELTAy[i] = new double[JMAX];
     }
 
-    // Inicializando a matriz com as condições de contorno de : Entrada, superior e saída
+    // Inicializando a matriz com as condiÃ§Ãµes de contorno de : Entrada, superior e saÃ­da
 
     for (i = 0; i < IMAX; i++){
          for (j = 0; j < JMAX; j++){
@@ -793,7 +792,7 @@ void inicializaMatriz_DELTAy(int IMAX, int JMAX){ // MATRIX DE RESIDUOS
 void inicializarMatrizes(int IMAX, int JMAX,double th,double alfa, double omega, double eps, double deltaX){
 
 
-    // Variaveis A, B, C, D, P, Q da Equação 1 Escritas no espaço Computacional
+    // Variaveis A, B, C, D, P, Q da EquaÃ§Ã£o 1 Escritas no espaÃ§o Computacional
     inicializaMatriz_A(IMAX,JMAX);
     inicializaMatriz_B(IMAX,JMAX);
     inicializaMatriz_C(IMAX,JMAX);
@@ -801,30 +800,30 @@ void inicializarMatrizes(int IMAX, int JMAX,double th,double alfa, double omega,
     inicializaMatriz_P(IMAX,JMAX);
     inicializaMatriz_Q(IMAX,JMAX);
 
-    // Inicialização de matrizes para geração da Mal computacional
+    // InicializaÃ§Ã£o de matrizes para geraÃ§Ã£o da Mal computacional
     inicializaMatriz_Phi(IMAX, JMAX);
     inicializaMatriz_Cc(IMAX, JMAX);
 
-    // Inicialização para o Algoritmo de THOMAS
+    // InicializaÃ§Ã£o para o Algoritmo de THOMAS
     inicializaMatriz_AT(IMAX);
     inicializaMatriz_BT(IMAX);
     inicializaMatriz_CT(IMAX);
     inicializaMatriz_DT(IMAX);
 
 
-    // Inicialização para periodica em X
+    // InicializaÃ§Ã£o para periodica em X
     inicializaMatriz_ATX(IMAX);
     inicializaMatriz_BTX(IMAX);
     inicializaMatriz_CTX(IMAX);
     inicializaMatriz_VTX(IMAX);
 
-    // Inicialização para periodica em Y
+    // InicializaÃ§Ã£o para periodica em Y
     inicializaMatriz_ATY(IMAX);
     inicializaMatriz_BTY(IMAX);
     inicializaMatriz_CTY(IMAX);
     inicializaMatriz_VTY(IMAX);
 
-    // Operador de Resuldo direção xi,j e yi,j
+    // Operador de Resuldo direÃ§Ã£o xi,j e yi,j
     inicializaMatriz_Lx(IMAX, JMAX);
     inicializaMatriz_Ly(IMAX, JMAX);
 
@@ -842,7 +841,7 @@ void inicializarMatrizes(int IMAX, int JMAX,double th,double alfa, double omega,
     // SOMa da PG
     inicializaMatriz_s(JMAX);
 
-    // Inicializando variaveis para Geração da Malha Local de referencia
+    // Inicializando variaveis para GeraÃ§Ã£o da Malha Local de referencia
     inicializaMatriz_Rx(JMAX);
     inicializaMatriz_Ry(JMAX);
     inicializaMatriz_R(JMAX);
@@ -907,14 +906,14 @@ int main(int argc, char*argv[]){
 //cout << "Machine epsilon for Double precision is:" << dep << endl;
 //cout << "Machine epsilon for Long Double precision is:" << ldep << endl;
 
-// Especificações Técnicas do computador utilizado:
+// EspecificaÃ§Ãµes TÃ©cnicas do computador utilizado:
 // Intel(R) Core(TM) i5-3210M CPU @ 2.50 GHz, sistema operacional de 64 Bits
 
 // "Machine epsilon for Single precision is = 5.96046e-008 ;
 // "Machine epsilon for Double precision is = 11.1022e-015 ;
 // "Machine epsilon for Long double precision is = 5.42101e-020 ;
 
-// Contador de Tempo computacional para avaliação dos metodos
+// Contador de Tempo computacional para avaliaÃ§Ã£o dos metodos
 
 clock_t TempoInicial;
 TempoInicial = clock();
@@ -927,10 +926,10 @@ TempoInicial = clock();
 double  resmaxX = 0.0, resmaxY = 0.0;
 int maxit = 10000;
 
-int IMAX = 93; // Número maximo de pontos na direção Csi >> i
-int JMAX = 15; // Número maximo de pontos na direção Eta >> j
+int IMAX = 93; // NÃºmero maximo de pontos na direÃ§Ã£o Csi >> i
+int JMAX = 15; // NÃºmero maximo de pontos na direÃ§Ã£o Eta >> j
 
-// Vetores para Transformação da Matrix para imprimir no formato Fortran (permite impressão tecplot)
+// Vetores para TransformaÃ§Ã£o da Matrix para imprimir no formato Fortran (permite impressÃ£o tecplot)
 double* xVet = new double[IMAX*JMAX];
 double* yVet = new double[IMAX*JMAX];
 
@@ -938,10 +937,10 @@ double *resmaxiterx, *resmaxitery, RMAXX = 1.0,RMAXY = 1.0;
 resmaxiterx = new double [maxit];
 resmaxitery = new double [maxit];
 
-int i,j,kiter; // i direção csi e j direção eta
+int i,j,kiter; // i direÃ§Ã£o csi e j direÃ§Ã£o eta
 
-double XSF = 1.25; // fator de estiramento ("Stretching") da Mal para a direção x
-double YSF = 1.25; // fator de estiramento ("Stretching") da Mal para a direção y %%%%%%% USAR 1.19 para todas as simulações
+double XSF = 1.25; // fator de estiramento ("Stretching") da Mal para a direÃ§Ã£o x
+double YSF = 1.25; // fator de estiramento ("Stretching") da Mal para a direÃ§Ã£o y %%%%%%% USAR 1.19 para todas as simulaÃ§Ãµes
 
  /*%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%    DADOS DE ENTRADA    %%%
@@ -953,7 +952,7 @@ double alfaLow = 1.0;
 double alfaHigh = 154.0;
 
 
-double r = 1.9; // Fator de Relaxação do SLOR
+double r = 1.9; // Fator de RelaxaÃ§Ã£o do SLOR
 
 // Raio do Circulo externo
 double R = 6.5;
@@ -962,11 +961,11 @@ double R = 6.5;
 double th = 0.10;
 
 // Iterations parameters for Numerical Methods AF1
-//double alfa = 0.1299; // Combinação Boa para meu problema 0.1299 e omega = 1,90 discretização sala
+//double alfa = 0.1299; // CombinaÃ§Ã£o Boa para meu problema 0.1299 e omega = 1,90 discretizaÃ§Ã£o sala
 //double omega = 1.9;
 
 // Iterations parameters AF2
-double alfa = 0.05; // Combinação Boa para meu problema 0.1299 e omega = 1,90 discretização sala
+double alfa = 0.05; // CombinaÃ§Ã£o Boa para meu problema 0.1299 e omega = 1,90 discretizaÃ§Ã£o sala
 double omega = 1.9;
 
 //Iterations Parameters for Eingenvalus anihhilation
@@ -974,7 +973,7 @@ double omega = 1.9;
 // Convergence Criterion
 double eps = 1.11022*pow(10,-12); //
 
-// Calculo do deltaX na direção X apenas no intervalo em cima do perfil biconvexo
+// Calculo do deltaX na direÃ§Ã£o X apenas no intervalo em cima do perfil biconvexo
 double deltaX;
 
 Malha Mal;
@@ -991,7 +990,7 @@ for (int refj = 1; refj<=JMAX-2;refj++){
 
 if (refj >= JMAX-2){
 
-    int refjaux = refj-1; // refjaux existe apenas para permitir a geração da penultima linha algebrica/parabolica
+    int refjaux = refj-1; // refjaux existe apenas para permitir a geraÃ§Ã£o da penultima linha algebrica/parabolica
 
     Mal = malhaInicialAlg1 (Mal,IMAX,JMAX,R,XSF,YSF,refj,refjaux);
     Mal = malhaInicialParabolica (Mal,i,j,IMAX,JMAX,R,XSF,YSF,refj);
@@ -1102,7 +1101,7 @@ Malha aerofolioPontosBiconvexo (Malha Mal, int i, int j, int IMAX, int JMAX,doub
 
 
 
-    // Fronteira Interna com função Cosseno
+    // Fronteira Interna com funÃ§Ã£o Cosseno
 //    for ( i= 0; i<=((IMAX-1)/2);i++){
 //
 //        Mal.x[i][0] = 0.5*cos(2*M_PI*(double(i))/(IMAX-1))+ 0.5;
@@ -1124,7 +1123,7 @@ Malha aerofolioPontosBiconvexo (Malha Mal, int i, int j, int IMAX, int JMAX,doub
 //     Mal.y[IMAX-1][0] = Mal.y[0][0];
 
 
- //Implementação com Estiramento usando Progressão Geometrica (esta sera apresentada no relatorio)
+ //ImplementaÃ§Ã£o com Estiramento usando ProgressÃ£o Geometrica (esta sera apresentada no relatorio)
 
         int numPointsPG = ((IMAX-1)/4);
         double somaPG = 0.5;
@@ -1164,7 +1163,7 @@ Malha aerofolioPontosBiconvexo (Malha Mal, int i, int j, int IMAX, int JMAX,doub
       }
 
 
-    for (i = 0; i<=((IMAX-1)/2);i++){ // ESSE LAÇO GERA O X estirado certo de 0 até (imax-1)/2
+    for (i = 0; i<=((IMAX-1)/2);i++){ // ESSE LAÃ‡O GERA O X estirado certo de 0 atÃ© (imax-1)/2
 
         Mal.x[i][0] = Mal.x[i][0] - 0.5;
         Mal.x[i][0] = - Mal.x[i][0];
@@ -1173,7 +1172,7 @@ Malha aerofolioPontosBiconvexo (Malha Mal, int i, int j, int IMAX, int JMAX,doub
 
     int k = ((IMAX-1)/2);
     // Gerando os valores de y para o terceiro e quarto quadrantes
-    for (i = (((IMAX-1)/2)); i <=IMAX-2; i++){ // era i <=IMAX-1 e agora é : i <=IMAX-2
+    for (i = (((IMAX-1)/2)); i <=IMAX-2; i++){ // era i <=IMAX-1 e agora Ã© : i <=IMAX-2
 
         Mal.y[i][0] = - Mal.y[k][0];
         Mal.x[i][0] =  Mal.x[k][0];
@@ -1202,10 +1201,10 @@ return Mal;
 Malha malhaInicialParabolica (Malha Mal, int i, int j, int IMAX, int JMAX, double R,double XSF, double YSF, int refj){
 
         double xqsi, yqsi, xeta, yeta;
-        double *x; // Armazenando espaço e zerando o vetor solução da periodica
+        double *x; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
         x = new double [IMAX];
 
-        double *y; // Armazenando espaço e zerando o vetor solução da periodica
+        double *y; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
         y = new double [IMAX];
         int M = IMAX-2; // Penultimo ponto da periodica
 
@@ -1277,7 +1276,7 @@ Malha malhaInicialAlg1 (Malha Mal,int IMAX, int JMAX, double R,double XSF, doubl
 
     double eps,dy, deltaS, RR, Rx, Ry, seta,xqsi, yqsi,xeta,yeta; // Where R is the distance between the point i,j-1 and the outer boundary i, JMAX
     double xort, yort, xint, yint,ds;
-     //Gerando a PG para o estiramento na direção eta
+     //Gerando a PG para o estiramento na direÃ§Ã£o eta
 
     int numPointsPGeta = JMAX;
     double somaPGeta = 1.0;
@@ -1320,7 +1319,7 @@ Malha malhaInicialAlg1 (Malha Mal,int IMAX, int JMAX, double R,double XSF, doubl
 
         }else{
 
-        xqsi= ( Mal.x[i+1][j-1]- Mal.x[i-1][j-1] )/2.0; //Mal.x[0][0] = Mal.x[IMAX-2][j] Ora pois : é periodico !!!
+        xqsi= ( Mal.x[i+1][j-1]- Mal.x[i-1][j-1] )/2.0; //Mal.x[0][0] = Mal.x[IMAX-2][j] Ora pois : Ã© periodico !!!
         yqsi= ( Mal.y[i+1][j-1]- Mal.y[i-1][j-1] )/2.0; //Mal.y[0][0] = Mal.y[IMAX-2][j]
 
         }
@@ -1371,10 +1370,10 @@ Malha SLOR (Malha Mal, int i, int j,int IMAX,int JMAX,double deltaX, double r,do
 
     double xqsi, yqsi, xeta, yeta, delqsiqsiX, delqsietaX, deletaetaX, delqsiqsiY, delqsietaY, deletaetaY;
 
-    double *xx; // Armazenando espaço e zerando o vetor solução da periodica
+    double *xx; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
     xx = new double [IMAX];
 
-    double *yy; // Armazenando espaço e zerando o vetor solução da periodica
+    double *yy; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
     yy = new double [IMAX];
 
     int M = IMAX-2; // Penultimo ponto da periodica
@@ -1495,10 +1494,10 @@ Malha AF1 (Malha Mal,int i, int j, int IMAX, int JMAX, double omega, double alfa
 
     double xqsi, yqsi, xeta, yeta, delqsiqsiX, delqsietaX, deletaetaX, delqsiqsiY, delqsietaY, deletaetaY;
 
-    double *x; // Armazenando espaço e zerando o vetor solução da periodica
+    double *x; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
     x = new double [IMAX];
 
-    double *y; // Armazenando espaço e zerando o vetor solução da periodica
+    double *y; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
     y = new double [IMAX];
 
     int M = IMAX-2; // Penultimo ponto da periodica
@@ -1606,11 +1605,11 @@ for (int jj = 1; jj<=JMAX-2; jj++){
 
         }
 
-        //Mal.f[IMAX-1][jj] = Mal.f[0][jj]; Garanto que é igual
+        //Mal.f[IMAX-1][jj] = Mal.f[0][jj]; Garanto que Ã© igual
         //Mal.g[IMAX-1][jj] = Mal.g[0][jj];
 }
 
-    // Resolve o Segundo Sweep do Metodo resolvendo agora uma tridiagonal simples pelo método TDMA
+    // Resolve o Segundo Sweep do Metodo resolvendo agora uma tridiagonal simples pelo mÃ©todo TDMA
 for (int i = 0; i<=IMAX-2; i++){
 
     for (int jj = 1; jj <=n; jj++){
@@ -1683,7 +1682,7 @@ for (int i = 0; i<=IMAX-2; i++){
 
            }
 
-        // Correção dos Pontos para todos os pontos j da matrix
+        // CorreÃ§Ã£o dos Pontos para todos os pontos j da matrix
 
          for ( int jj = 1; jj <= JMAX-2; jj++){
 
@@ -1706,10 +1705,10 @@ Malha AF2 (Malha Mal,int i, int j, int IMAX, int JMAX, double omega, double alfa
 
     double xqsi, yqsi, xeta, yeta, delqsiqsiX, delqsietaX, deletaetaX, delqsiqsiY, delqsietaY, deletaetaY;
 
-    double *x; // Armazenando espaço e zerando o vetor solução da periodica
+    double *x; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
     x = new double [IMAX];
 
-    double *y; // Armazenando espaço e zerando o vetor solução da periodica
+    double *y; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
     y = new double [IMAX];
 
     int M = IMAX-2; // Penultimo ponto da periodica
@@ -1839,11 +1838,11 @@ for (int jj = 1; jj<=JMAX-2; jj++){
 
         }
 
-        //Mal.f[IMAX-1][jj] = Mal.f[0][jj]; Garanto que é igual
+        //Mal.f[IMAX-1][jj] = Mal.f[0][jj]; Garanto que Ã© igual
         //Mal.g[IMAX-1][jj] = Mal.g[0][jj];
 }
 
-// Resolve o Segundo Sweep do Metodo resolvendo agora uma tridiagonal simples pelo método TDMA
+// Resolve o Segundo Sweep do Metodo resolvendo agora uma tridiagonal simples pelo mÃ©todo TDMA
 for (int i = 0; i<=IMAX-2; i++){
 
     for (int jj = 1; jj <=n; jj++){
@@ -1934,7 +1933,7 @@ for (int i = 0; i<=IMAX-2; i++){
 
             }
 
-        // Correção dos Pontos para todos os pontos j da matrix
+        // CorreÃ§Ã£o dos Pontos para todos os pontos j da matrix
 
          for ( int jj = 1; jj <= JMAX-2; jj++){
 
@@ -1961,7 +1960,7 @@ return Mal;
 
 void TridiagPX(double* a, double* b, double* c, double* dv, double *x, int M){
 
-   // Essa implementação foi feita baseando no trabalho de Doutorado do Prof. Azevedo no anexo sobre a solução tridiagonal Periodica
+   // Essa implementaÃ§Ã£o foi feita baseando no trabalho de Doutorado do Prof. Azevedo no anexo sobre a soluÃ§Ã£o tridiagonal Periodica
 
     int i, IMAX=93;
 
@@ -1979,7 +1978,7 @@ void TridiagPX(double* a, double* b, double* c, double* dv, double *x, int M){
     f = new double [M];
     g = new double [M];
 
-    for (i =0; i<=M;i++){ // Uma vez que foi alocado dinamicamente (via pointer) é conveniente zerar as posições alocadas, evitando pegar lixo de máquina
+    for (i =0; i<=M;i++){ // Uma vez que foi alocado dinamicamente (via pointer) Ã© conveniente zerar as posiÃ§Ãµes alocadas, evitando pegar lixo de mÃ¡quina
 
         l1[i] = 0.0;
         l2[i] = 0.0;
@@ -2047,7 +2046,7 @@ void TridiagPX(double* a, double* b, double* c, double* dv, double *x, int M){
 
 void TridiagPY(double* a, double* b, double* c, double* dv, double *y, int M){
 
-   // Essa implementação foi feita baseando no trabalho de Doutorado do Prof. Azevedo no anexo sobre a solução tridiagonal Periodica
+   // Essa implementaÃ§Ã£o foi feita baseando no trabalho de Doutorado do Prof. Azevedo no anexo sobre a soluÃ§Ã£o tridiagonal Periodica
 int i, IMAX=93;
 
     double *l1,*l2,*l3,*u1,*u2,*u3,*f,*g;
@@ -2064,7 +2063,7 @@ int i, IMAX=93;
     f = new double [M];
     g = new double [M];
 
-    for (i =0; i<=M;i++){ // Uma vez que foi alocado dinamicamente (via pointer) é conveniente zerar as posições alocadas, evitando pegar lixo de máquina
+    for (i =0; i<=M;i++){ // Uma vez que foi alocado dinamicamente (via pointer) Ã© conveniente zerar as posiÃ§Ãµes alocadas, evitando pegar lixo de mÃ¡quina
 
         l1[i] = 0.0;
         l2[i] = 0.0;
@@ -2293,7 +2292,7 @@ Malha aerofolioPontosNACA (Malha Mal, int i, int j, int IMAX, int JMAX,double R,
     Mal.x[IMAX-1][JMAX-1] = Mal.x[0][JMAX-1];
     Mal.y[IMAX-1][JMAX-1] = Mal.y[0][JMAX-1];
 
- //Implementação com Estiramento usando Progressão Geometrica (esta sera apresentada no relatorio)
+ //ImplementaÃ§Ã£o com Estiramento usando ProgressÃ£o Geometrica (esta sera apresentada no relatorio)
 
         int numPointsPG = ((IMAX-1)/4);
         double somaPG = 0.5;
@@ -2327,7 +2326,7 @@ Malha aerofolioPontosNACA (Malha Mal, int i, int j, int IMAX, int JMAX,double R,
 
       }
 
-    for (i = 0; i<=((IMAX-1)/2);i++){ // ESSE LAÇO GERA O X estirado certo de 0 até (imax-1)/2
+    for (i = 0; i<=((IMAX-1)/2);i++){ // ESSE LAÃ‡O GERA O X estirado certo de 0 atÃ© (imax-1)/2
 
         Mal.x[i][0] = Mal.x[i][0] - 0.5; // ERA : Mal.x[i][0] - 0.5
         Mal.x[i][0] = -Mal.x[i][0]; //era -Mal.x[i][0] $$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -2335,7 +2334,7 @@ Malha aerofolioPontosNACA (Malha Mal, int i, int j, int IMAX, int JMAX,double R,
 
     int k = ((IMAX-1)/2);
     // Gerando os valores de y para o terceiro e quarto quadrantes
-    for (i = (((IMAX-1)/2)); i <=IMAX-2; i++){ // era i <=IMAX-1 e agora é : i <=IMAX-2
+    for (i = (((IMAX-1)/2)); i <=IMAX-2; i++){ // era i <=IMAX-1 e agora Ã© : i <=IMAX-2
 
         Mal.y[i][0] = -Mal.y[k][0]; // ERA : - Mal.y[k][0]
         Mal.x[i][0] = Mal.x[k][0];
@@ -2344,7 +2343,7 @@ Malha aerofolioPontosNACA (Malha Mal, int i, int j, int IMAX, int JMAX,double R,
 
     int kk = 0; // 92
 
-    for (i = (((IMAX-1)/2)); i <=IMAX-1; i++){ // 46 até 92
+    for (i = (((IMAX-1)/2)); i <=IMAX-1; i++){ // 46 atÃ© 92
 
         Mal.y[i][0] = Mal.y[kk][0];
         //cout << Mal.y[kk][0] << endl;
@@ -2355,7 +2354,7 @@ Malha aerofolioPontosNACA (Malha Mal, int i, int j, int IMAX, int JMAX,double R,
 
     int kkk = (IMAX-1);
 
-  for (i = 0; i <=(((IMAX-1)/2)); i++){ // 46 até 92
+  for (i = 0; i <=(((IMAX-1)/2)); i++){ // 46 atÃ© 92
 
         Mal.y[i][0] =Mal.y[kkk][0];
         kkk = kkk-1;
@@ -2381,10 +2380,10 @@ Malha AF2Dirichlet (Malha Mal,int i, int j, int IMAX, int JMAX, double omega, do
 
     double xqsi, yqsi, xeta, yeta, delqsiqsiX, delqsietaX, deletaetaX, delqsiqsiY, delqsietaY, deletaetaY;
 
-    double *x; // Armazenando espaço e zerando o vetor solução da periodica
+    double *x; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
     x = new double [IMAX];
 
-    double *y; // Armazenando espaço e zerando o vetor solução da periodica
+    double *y; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
     y = new double [IMAX];
 
     int M = IMAX-2; // Penultimo ponto da periodica
@@ -2500,7 +2499,7 @@ for (int jj = 1; jj<=JMAX-2; jj++){
 
 }
 
-// Resolve o Segundo Sweep do Metodo resolvendo agora uma tridiagonal simples pelo método TDMA
+// Resolve o Segundo Sweep do Metodo resolvendo agora uma tridiagonal simples pelo mÃ©todo TDMA
 for (int i = 0; i<=IMAX-2; i++){
 
     for (int jj = 1; jj <=n; jj++){
@@ -2578,7 +2577,7 @@ for (int i = 0; i<=IMAX-2; i++){
 
             }
 
-        // Correção dos Pontos para todos os pontos j da matrix
+        // CorreÃ§Ã£o dos Pontos para todos os pontos j da matrix
 
          for ( int jj = 1; jj <= JMAX-2; jj++){
 
@@ -2601,14 +2600,14 @@ Malha AF2Atraction (Malha Mal,int i, int j, int IMAX, int JMAX, double omega, do
 
     double xqsi, yqsi, xeta, yeta, delqsiqsiX, delqsietaX, deletaetaX, delqsiqsiY, delqsietaY, deletaetaY;
 
-    double *x; // Armazenando espaço e zerando o vetor solução da periodica
+    double *x; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
     x = new double [IMAX];
 
-    double *y; // Armazenando espaço e zerando o vetor solução da periodica
+    double *y; // Armazenando espaÃ§o e zerando o vetor soluÃ§Ã£o da periodica
     y = new double [IMAX];
 
 
-    // Coeficientes da Função de Atração do Tompson
+    // Coeficientes da FunÃ§Ã£o de AtraÃ§Ã£o do Tompson
 
 
     int L  = 1;
@@ -2753,11 +2752,11 @@ for (int jj = 1; jj<=JMAX-2; jj++){
 
         }
 
-        //Mal.f[IMAX-1][jj] = Mal.f[0][jj]; Garanto que é igual
+        //Mal.f[IMAX-1][jj] = Mal.f[0][jj]; Garanto que Ã© igual
         //Mal.g[IMAX-1][jj] = Mal.g[0][jj];
 }
 
-// Resolve o Segundo Sweep do Metodo resolvendo agora uma tridiagonal simples pelo método TDMA
+// Resolve o Segundo Sweep do Metodo resolvendo agora uma tridiagonal simples pelo mÃ©todo TDMA
 for (int i = 0; i<=IMAX-2; i++){
 
     for (int jj = 1; jj <=n; jj++){
@@ -2848,7 +2847,7 @@ for (int i = 0; i<=IMAX-2; i++){
 
             }
 
-        // Correção dos Pontos para todos os pontos j da matrix
+        // CorreÃ§Ã£o dos Pontos para todos os pontos j da matrix
 
          for ( int jj = 1; jj <= JMAX-2; jj++){
 
